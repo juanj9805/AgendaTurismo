@@ -117,20 +117,19 @@ public class Main {
 
 
     /*   **************   Validaciones Reserva    ***************/
-/*
-        System.out.println("Señor usuario digite el año de la fecha inicio");
-        Integer anioInicio=input.nextInt();
+/*        System.out.println("Señor usuario digite el año de la fecha inicio");
+        Integer anio=input.nextInt();
 
-        System.out.println("Señor usuario digite el mes de la fecha inicio");          PENDIENTE <----------------------
-        Integer mesInicio=input.nextInt();
+        System.out.println("Señor usuario digite el mes de la fecha inicio");
+        Integer mes=input.nextInt();
 
         System.out.println("Señor usuario digite el dia de la fecha inicio");
-        Integer diaInicio=input.nextInt();
+        Integer dia=input.nextInt();
 
         objetoReserva.setFechaReserva(anio,mes,dia);
-        System.out.println(objetoReserva.getFechaReserva());*/
+        System.out.println(objetoReserva.getFechaReserva());
 
-     /*   System.out.println("Digite la cantidad de reservas que desea hacer");
+        System.out.println("Digite la cantidad de reservas que desea hacer");
         Integer cantidadReservas=input.nextInt();
         objetoReserva.setCantidadReserva(cantidadReservas);
         System.out.println(objetoReserva.getCantidadReserva());*/

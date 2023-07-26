@@ -68,8 +68,19 @@ public class Reserva {
         return fechaReserva;
     }
 
-    public void setFechaReserva(LocalDate fechaReserva) {
-        this.fechaReserva = fechaReserva;
+    public void setFechaReserva(Integer anio, Integer mes,Integer dia) {
+        try {
+            objetoVinculoValidacionReserva.validarAnio(anio);
+            objetoVinculoValidacionReserva.validarMes(mes);
+            objetoVinculoValidacionReserva.validarDia(dia);
+
+            LocalDate fechaJuan=LocalDate.of(anio,mes,dia);
+
+            this.fechaReserva = fechaJuan;
+
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public Integer getCantidadReserva() {
