@@ -15,9 +15,9 @@ private Util objetoVinculoUtil = new Util();
         String expresionRegular="^[0-9]+$";
 
         if (! objetoVinculoUtil.objetoRegex(expresionRegular,inputValidarNit)){
-            throw new Exception("Señor usuario su nombre no puede tener numeros, solo caracteres");
-        } else if (inputValidarNit.equals(10)) {
-            throw new Exception("Señor usuario su nombre debe contener como minimo 10 caracteres");
+            throw new Exception("Señor usuario su nombre solo puede tener numeros");
+        } else if (!(inputValidarNit.length() ==10)) {
+            throw new Exception("Señor usuario su nit debe contener 10 caracteres");
 
         } else{
             return true;
@@ -25,7 +25,9 @@ private Util objetoVinculoUtil = new Util();
     }
 
 
+
     public Boolean validarNombreEmpresa( String inputValidarNombreEmpresa )throws Exception{
+
 
         String expresionRegular="^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$";
 

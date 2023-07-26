@@ -30,11 +30,22 @@ public class ValidacionUsuario {
         String expresionRegular="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
         if (! objetoUtil.objetoRegex(expresionRegular,inputValidarCorreo)){
-            throw new Exception("Señor usuario su no cumple los requisitos para ser un correo");
+            throw new Exception("Señor usuario su correo no cumple los requisitos ");
         }else{
             return true;
         }
     }
+
+    public Boolean validarUbicacion (Integer ubicacion) throws  Exception{
+
+        if (ubicacion.equals(1) || ubicacion.equals(2) || ubicacion.equals(3) || ubicacion.equals(4)){
+            return true;
+        }else{
+            throw new Exception("señor usuario el numero que usted digito no es valido");
+        }
+        }
+
+}
 
 /*    public Boolean validarUbicacion( String inputValidarUbicacion )throws Exception{
 
@@ -51,13 +62,3 @@ public class ValidacionUsuario {
             return true;
         }
     }*/
-
-    public Boolean validarUbicacion (Integer ubicacion) throws  Exception{
-        if (ubicacion.equals(1) || ubicacion.equals(2) || ubicacion.equals(3) || ubicacion.equals(4)){
-           throw new Exception("Señor");
-        } else {
-            return true;
-        }
-        }
-
-}

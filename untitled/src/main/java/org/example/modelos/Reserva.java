@@ -1,5 +1,8 @@
 package org.example.modelos;
 
+import org.example.validaciones.ValidacionOferta;
+import org.example.validaciones.ValidacionReserva;
+
 import java.time.LocalDate;
 
 public class Reserva {
@@ -10,21 +13,24 @@ public class Reserva {
     private Integer idOferta;
     private Double costoTotal;
     private LocalDate fechaReserva;
+    private Integer cantidadReserva;
+    ValidacionReserva objetoVinculoValidacionReserva = new ValidacionReserva();
+
 
 
     //METODOS
-
-
     public Reserva() {
     }
 
-    public Reserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, LocalDate fechaReserva) {
+    public Reserva(Integer id, Integer idUsuario, Integer idOferta, Double costoTotal, LocalDate fechaReserva, Integer cantidadReserva) {
         this.id = id;
         this.idUsuario = idUsuario;
         this.idOferta = idOferta;
         this.costoTotal = costoTotal;
         this.fechaReserva = fechaReserva;
+        this.cantidadReserva = cantidadReserva;
     }
+
 
     public Integer getId() {
         return id;
@@ -65,4 +71,20 @@ public class Reserva {
     public void setFechaReserva(LocalDate fechaReserva) {
         this.fechaReserva = fechaReserva;
     }
+
+    public Integer getCantidadReserva() {
+        return cantidadReserva;
+    }
+
+    public void setCantidadReserva(Integer cantidadReserva) {
+        try {objetoVinculoValidacionReserva.validarReservas(cantidadReserva);
+            this.cantidadReserva = cantidadReserva;
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
+        }
+
+
+        }
 }
+
+

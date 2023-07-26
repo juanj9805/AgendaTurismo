@@ -68,10 +68,10 @@ private ValidacionUsuario objetoVinculoValidacionUsuario = new ValidacionUsuario
         return ubicacion;
     }
 
-    public void setUbicacion(String ubicacion) throws Exception {
+    public void setUbicacion(Integer ubicacion) throws Exception {
         try {
-            objetoVinculoValidacionUsuario.validarUbicacion(Integer.valueOf(ubicacion));
-            this.ubicacion = Integer.valueOf(ubicacion);
+            objetoVinculoValidacionUsuario.validarUbicacion(ubicacion);
+            this.ubicacion = ubicacion;
 
         }catch (Exception error){
             System.out.println(error.getMessage());
@@ -99,4 +99,6 @@ private ValidacionUsuario objetoVinculoValidacionUsuario = new ValidacionUsuario
     public void setObjetoVinculoValidacionUsuario(ValidacionUsuario objetoVinculoValidacionUsuario) {
         this.objetoVinculoValidacionUsuario = objetoVinculoValidacionUsuario;
     }
+
+
 }

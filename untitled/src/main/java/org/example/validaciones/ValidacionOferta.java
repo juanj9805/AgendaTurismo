@@ -17,8 +17,8 @@ public class ValidacionOferta {
         String expresionRegular="^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$";
 
         if (! objetoVinculoUtilOferta.objetoRegex(expresionRegular,inputValidarTituloOferta)){
-            throw new Exception("Señor usuario su titulo no puede tener numeros, solo caracteres");
-        } else if (inputValidarTituloOferta.length()<21) {
+            throw new Exception("Señor usuario su titulo no puede tener numeros, solo digitos");
+        } else if (inputValidarTituloOferta.length()>20) {
             throw new Exception("Señor usuario su titulo no debe sobrepasar los 20 caracteres");
 
         } else{
