@@ -1,5 +1,6 @@
 package org.example.validaciones;
 
+import org.example.utilidades.Mensaje;
 import org.example.utilidades.Util;
 
 public class ValidacionLocal {
@@ -15,7 +16,7 @@ private Util objetoVinculoUtil = new Util();
         String expresionRegular="^[0-9]+$";
 
         if (! objetoVinculoUtil.objetoRegex(expresionRegular,inputValidarNit)){
-            throw new Exception("Señor usuario su nombre solo puede tener numeros");
+            throw new Exception(Mensaje.SOLO_NUMEROS.getMensaje());
         } else if (!(inputValidarNit.length() ==10)) {
             throw new Exception("Señor usuario su nit debe contener 10 caracteres");
 
