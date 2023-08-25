@@ -19,16 +19,73 @@ class ValidacionLocalTest {
     @Test
     public void validarNitCuandoSoloTieneNumeros(){
         //arrange
-        String nitCorrecto="1234567899";
+        String nitCorrecto="129";
         //act
         Assertions.assertDoesNotThrow(()->validacionLocal.validarNit(nitCorrecto));
     }
 
     @Test
     public void validarNitCuandoTieneCaracteresIncorrectos(){
-
+        //arrange
         String nitIncorrecto="asd";
+        //act
         Exception exception=Assertions.assertThrows(Exception.class,()->validacionLocal.validarNit(nitIncorrecto));
+        //assertion
         Assertions.assertEquals(Mensaje.SOLO_NUMEROS.getMensaje(),exception.getMessage());
     }
+    @Test
+    public void validarNitCorrectoCuandoLosCaracteresSonDiez(){
+        //arrange
+        String nitCorrecto="1234558s99";
+        //act
+        Assertions.assertDoesNotThrow(()->validacionLocal.validarNitExtension(nitCorrecto));
+    }
+    @Test
+    public void validarNitIncorrectoCuandoNoSonDiezCaracteres(){
+        String nitIncorrecto="12345678m";
+
+        Exception exception=Assertions.assertThrows(Exception.class,()->validacionLocal.validarNitExtension(nitIncorrecto));
+
+        Assertions.assertEquals(Mensaje.CANTIDAD_DIGITOS_NO_IGUALES_DIEZ.getMensaje(),exception.getMessage());
+    }
+
+    @Test
+    public void validarNombreCorrectoSoloLetrasEmpresa(){
+        String nombreCorrecto="asde";
+
+        Assertions.assertDoesNotThrow(()->validacionLocal.validarNombreEmpresa(nombreCorrecto));
+
+    }
+
+    @Test
+    public void validarNombreIncorrectoSoloLetrasEmpresa(){
+        String nombreIncorrecto="1asdaf2";
+
+        Exception exception=Assertions.assertThrows(Exception.class,()->validacionLocal.validarNombreEmpresa(nombreIncorrecto));
+
+        Assertions.assertEquals(Mensaje.SOLO_LETRAS.getMensaje(),exception.getMessage());
+    }
+
+    @Test
+    public void validarNombreCorrectoExtensionEmpresa(){
+        String nombreCorrecto="asdeadaf";
+
+        Assertions.assertDoesNotThrow(()->validacionLocal.validarExtensionEmpresa(nombreCorrecto));
+
+    }
+
+    @Test
+    public void validarNombreIncorrectoExtensionEmpresa(){
+        String nombreIncorrecto="1asdadaffffffffffffffffffffffffffffffgggggggggggggggggggggggggaaaaaaaaaaaaaaf2";
+
+        Exception exception=Assertions.assertThrows(Exception.class,()->validacionLocal.validarExtensionEmpresa(nombreIncorrecto));
+
+        Assertions.assertEquals(Mensaje.EXTENSION_MAYOR_TREINTA.getMensaje(),exception.getMessage());
+    }
+
+
+
+
+
+
 }

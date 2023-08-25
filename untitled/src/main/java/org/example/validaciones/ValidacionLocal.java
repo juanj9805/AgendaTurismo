@@ -17,27 +17,35 @@ private Util objetoVinculoUtil = new Util();
 
         if (! objetoVinculoUtil.objetoRegex(expresionRegular,inputValidarNit)){
             throw new Exception(Mensaje.SOLO_NUMEROS.getMensaje());
-        } else if (!(inputValidarNit.length() ==10)) {
-            throw new Exception("Señor usuario su nit debe contener 10 caracteres");
+        }else{
+            return true;
+        }
+    }
+    public Boolean validarNitExtension(String inputValidarNit) throws Exception{
+        if (!(inputValidarNit.length() ==10)) {
+            throw new Exception(Mensaje.CANTIDAD_DIGITOS_NO_IGUALES_DIEZ.getMensaje());
 
-        } else{
+        }else {
             return true;
         }
     }
 
-
-
     public Boolean validarNombreEmpresa( String inputValidarNombreEmpresa )throws Exception{
-
 
         String expresionRegular="^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$";
 
         if (! objetoVinculoUtil.objetoRegex(expresionRegular,inputValidarNombreEmpresa)){
-            throw new Exception("Señor usuario su nombre no puede tener numeros, solo caracteres");
-        } else if (inputValidarNombreEmpresa.length()>30) {
-            throw new Exception("Señor usuario su nombre no debe sobrepasar los 30 caracteres");
+            throw new Exception(Mensaje.SOLO_LETRAS.getMensaje());
+        }else{
+            return true;
+        }
+    }
 
-        } else{
+    public Boolean validarExtensionEmpresa(String inputValidarExtensionEmpresa)throws Exception{
+
+        if (inputValidarExtensionEmpresa.length()>30) {
+            throw new Exception(Mensaje.EXTENSION_MAYOR_TREINTA.getMensaje());
+        }else{
             return true;
         }
     }

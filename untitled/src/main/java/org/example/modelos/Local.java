@@ -40,6 +40,7 @@ private ValidacionLocal objetoVinculoValidacionLocal = new ValidacionLocal();
 
         try{
             objetoVinculoValidacionLocal.validarNit(nit);
+            objetoVinculoValidacionLocal.validarNitExtension(nit);
             this.nit = nit;
         }catch (Exception error){
             System.out.println(error.getMessage());
@@ -55,6 +56,7 @@ private ValidacionLocal objetoVinculoValidacionLocal = new ValidacionLocal();
 
         try{
             objetoVinculoValidacionLocal.validarNombreEmpresa(nombre);
+            objetoVinculoValidacionLocal.validarExtensionEmpresa(nombre);
             this.nombre = nombre;
         }catch (Exception error){
             System.out.println(error.getMessage());

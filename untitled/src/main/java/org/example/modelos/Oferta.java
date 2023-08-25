@@ -53,6 +53,7 @@ public class Oferta {
 
         try{
             objetoVinculoValidacionOferta.validarTitulo(titulo);
+            objetoVinculoValidacionOferta.validarTituloExtencion(titulo);
             this.titulo = titulo;
         }catch (Exception error){
             System.out.println(error.getMessage());
@@ -74,11 +75,9 @@ public class Oferta {
 
     public void setFechaInicio(Integer anio, Integer mes,Integer dia) {
         try {
-            objetoVinculoValidacionOferta.validarAnio(anio);
-            objetoVinculoValidacionOferta.validarMes(mes);
-            objetoVinculoValidacionOferta.validarDia(dia);
-
-
+//            objetoVinculoValidacionOferta.validarAnio(anio);
+//            objetoVinculoValidacionOferta.validarMes(mes);
+//            objetoVinculoValidacionOferta.validarDia(dia);
 
             LocalDate fechaJuan=LocalDate.of(anio,mes,dia);
             this.fechaInicio = fechaJuan;
@@ -94,9 +93,9 @@ public class Oferta {
 
     public void setFechaFin(Integer anioFin, Integer mesFin,Integer diaFin)  {
         try {
-            objetoVinculoValidacionOferta.validarAnio(anioFin);
-            objetoVinculoValidacionOferta.validarMes(mesFin);
-            objetoVinculoValidacionOferta.validarDia(diaFin);
+//            objetoVinculoValidacionOferta.validarAnio(anioFin);
+//            objetoVinculoValidacionOferta.validarMes(mesFin);
+//            objetoVinculoValidacionOferta.validarDia(diaFin);
             LocalDate fechaFin =LocalDate.of(anioFin,mesFin,diaFin);
             objetoVinculoValidacionOferta.validarDosFechas(this.fechaInicio,fechaFin);
             this.fechaFin = fechaFin;
