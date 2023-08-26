@@ -11,9 +11,7 @@ public class ValidacionOferta {
     private Util objetoVinculoUtilOferta = new Util();
 
     //METODOS
-
-
-    public Boolean validarTitulo( String inputValidarTituloOferta )throws Exception {
+    public Boolean validarTitulo(String inputValidarTituloOferta) throws Exception {
 
         String expresionRegular = "^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$";
 
@@ -24,58 +22,37 @@ public class ValidacionOferta {
         }
     }
 
-    public Boolean validarTituloExtencion(String input)throws Exception{
-        if (input.length()>20) {
+    public Boolean validarTituloExtencion(String input) throws Exception {
+        if (input.length() > 20) {
             throw new Exception(Mensaje.EXTENSION_MAYOR_VEINTE.getMensaje());
 
-        } else{
+        } else {
+            return true;
+        }
+    }
+    public Boolean validarLogicaFecha(LocalDate fechaInicio, LocalDate fechaFin) throws Exception {
+        if (fechaInicio.isAfter(fechaFin) || fechaFin.isBefore(fechaInicio)) {
+            throw new Exception(Mensaje.FECHA_ILOGICA.getMensaje());
+        } else {
             return true;
         }
     }
 
-
-    public Boolean validarDosFechas(LocalDate fechaInicio,LocalDate fechaFin)throws Exception{
-        if (!objetoVinculoUtilOferta.diferenciaFechas(fechaInicio,fechaFin)){
-            throw new Exception("Señor usuario las fechas son ilogicas por que la fecha fin no puede ser menor a la fecha inicio ");
-        }else {
-            return true;
-        }
-    }
-
-//    public Boolean validarAnio(Integer anio)throws Exception{
-//        if ((anio>0) &&(anio<2024)){
-//            return true;
-//        }else {
-//            throw new Exception("Señor usuario el año debe ser positivo y menor a 2024");
-//        }
-//    }
-//
-//    public Boolean validarMes(Integer mes)throws Exception{
-//        if ((mes>0) &&(mes<13)){
-//            return true;
-//        }else {
-//            throw new Exception("Señor usuario el mes debe ser positivo y menor a 13");
-//        }
-//    }
-//
-//    public Boolean validarDia(Integer dia)throws Exception{
-//        if ((dia>0) &&(dia<32)){
-//            return true;
-//        }else {
-//            throw new Exception("Señor usuario el dia debe ser positivo y menor a 32");
-//        }
-//    }
-
-    public Boolean validarCosto (Double inputCostoPersona) throws Exception {
-        if (inputCostoPersona <0 ){
-            throw new Exception("Señor usuario el costo no puede ser un valor menor a 0");
+    public Boolean validarCosto(Double costoPersona) throws Exception {
+        if (costoPersona < 0) {
+            throw new Exception(Mensaje.COSTO_PERSONA_NEGATIVO.getMensaje());
         }
         return true;
     }
 
+    public Boolean validarFormatoFecha(String inputFecha) throws Exception {
+        String expresionRegular = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
 
-
-
-
+        if (!objetoVinculoUtilOferta.objetoRegex(expresionRegular, inputFecha)) {
+            throw new Exception(Mensaje.FORMATO_FECHA_INVALIDO.getMensaje());
+        } else {
+            return true;
+        }
+    }
 }
 

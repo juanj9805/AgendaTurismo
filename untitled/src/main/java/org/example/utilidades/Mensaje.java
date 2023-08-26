@@ -6,7 +6,11 @@ public enum Mensaje {
     EXTENSION_MAYOR_TREINTA("Señor usuario su nombre no debe sobrepasar los 30 caracteres"),
     SOLO_LETRAS("Señor usuario su nombre no puede tener numeros, solo caracteres"),
     EXTENSION_MAYOR_VEINTE("Señor usuario su titulo no debe sobrepasar los 20 caracteres"),
-
+    NUMEROS_NEGATIVOS("Señor usuario es ilogico hacer una reserva con un valor negativo"),
+    NUMEROS_SUPERIOR_CUATRO("Señor usuario no se puede hacer mas de 4 reservas"),
+    FORMATO_FECHA_INVALIDO("Señor usuario la fecha esta incorrecta"),
+    FECHA_ILOGICA("Señor usuario su fecha es ilogica"),
+    COSTO_PERSONA_NEGATIVO("Señor usuario el costo no puede ser negativo"),
 
 
 

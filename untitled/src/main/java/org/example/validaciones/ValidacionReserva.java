@@ -1,5 +1,6 @@
 package org.example.validaciones;
 
+import org.example.utilidades.Mensaje;
 import org.example.utilidades.Util;
 
 public class ValidacionReserva {
@@ -8,35 +9,33 @@ public class ValidacionReserva {
 
     //METODOS
 
-    public Boolean validarAnio(Integer anio)throws Exception{
-        if ((anio>0) &&(anio<2024)){
-            return true;
-        }else {
-            throw new Exception("Señor usuario el año debe ser positivo y menor a 2024");
-        }
-    }
-
-    public Boolean validarMes(Integer mes)throws Exception{
-        if ((mes>0) &&(mes<13)){
-            return true;
-        }else {
-            throw new Exception("Señor usuario el mes debe ser positivo y menor a 13");
-        }
-    }
-
-    public Boolean validarDia(Integer dia)throws Exception{
-        if ((dia>0) &&(dia<32)){
-            return true;
-        }else {
-            throw new Exception("Señor usuario el dia debe ser positivo y menor a 32");
-        }
-    }
 
     public Boolean validarReservas(Integer reservas) throws Exception{
-        if (!(reservas >4)){
+        if (reservas >4){
+            throw new Exception(Mensaje.NUMEROS_SUPERIOR_CUATRO.getMensaje());
+        }
+        else {
             return true;
-        }else {
-            throw new Exception("Señor usuario no se puede hacer mas de 4 reservas");
         }
     }
+    public Boolean validarFormatoFecha(String inputFecha) throws Exception{
+        String expresionRegular="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
+
+        if (!objetoUtil.objetoRegex(expresionRegular, inputFecha)){
+            throw new Exception(Mensaje.FORMATO_FECHA_INVALIDO.getMensaje());
+        }else{
+            return true;
+        }
+    }
+
+    public Boolean validarReservaNegativas(Integer reservas) throws Exception{
+        if (reservas <1){
+            throw new Exception(Mensaje.NUMEROS_NEGATIVOS.getMensaje());
+        }
+        else {
+            return true;
+        }
+    }
+
+
 }

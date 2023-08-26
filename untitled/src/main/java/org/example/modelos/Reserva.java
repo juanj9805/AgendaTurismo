@@ -1,5 +1,6 @@
 package org.example.modelos;
 
+import org.example.utilidades.Util;
 import org.example.validaciones.ValidacionOferta;
 import org.example.validaciones.ValidacionReserva;
 
@@ -68,15 +69,11 @@ public class Reserva {
         return fechaReserva;
     }
 
-    public void setFechaReserva(Integer anio, Integer mes,Integer dia) {
+    public void setFechaReserva(String fechaReserva) {
         try {
-            objetoVinculoValidacionReserva.validarAnio(anio);
-            objetoVinculoValidacionReserva.validarMes(mes);
-            objetoVinculoValidacionReserva.validarDia(dia);
+            this.objetoVinculoValidacionReserva.validarFormatoFecha(fechaReserva);
+            this.fechaReserva= Util.formateoFechaStringLocalDate(fechaReserva,"dd/MM/yyyy" );
 
-            LocalDate fechaJuan=LocalDate.of(anio,mes,dia);
-
-            this.fechaReserva = fechaJuan;
 
         }catch (Exception error){
             System.out.println(error.getMessage());
@@ -89,6 +86,7 @@ public class Reserva {
 
     public void setCantidadReserva(Integer cantidadReserva) {
         try {objetoVinculoValidacionReserva.validarReservas(cantidadReserva);
+            objetoVinculoValidacionReserva.validarReservaNegativas(cantidadReserva);
             this.cantidadReserva = cantidadReserva;
         } catch (Exception error) {
             System.out.println(error.getMessage());
