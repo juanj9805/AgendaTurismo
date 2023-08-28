@@ -11,6 +11,9 @@ public enum Mensaje {
     FORMATO_FECHA_INVALIDO("Señor usuario la fecha esta incorrecta"),
     FECHA_ILOGICA("Señor usuario su fecha es ilogica"),
     COSTO_PERSONA_NEGATIVO("Señor usuario el costo no puede ser negativo"),
+    CORREO_INVALIDO("Señor usuario su correo no cumple los requisitos "),
+    NUMERO_INVALIDO("señor usuario el numero que usted digito no es valido"),
+
 
 
 
