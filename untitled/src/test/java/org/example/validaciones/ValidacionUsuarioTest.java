@@ -53,7 +53,7 @@ class ValidacionUsuarioTest {
 
     @Test
     public void validarUbicacionCorrecto(){
-        Integer ubicacionCorrecto= Integer.valueOf("1");
+        Integer ubicacionCorrecto=1;
 
         Assertions.assertDoesNotThrow(()->validacionUsuario.validarUbicacion(ubicacionCorrecto));
 
@@ -61,11 +61,11 @@ class ValidacionUsuarioTest {
 
     @Test
     public void validarUbicacionIncorrecto(){
-        Integer ubicacionIncorrecto= Integer.valueOf("5");
+        Integer ubicacionIncorrecto=5;
 
         Exception exception=Assertions.assertThrows(Exception.class,()->validacionUsuario.validarUbicacion(ubicacionIncorrecto));
 
-        Assertions.assertEquals(Mensaje.CORREO_INVALIDO.getMensaje(),exception.getMessage());
+        Assertions.assertEquals(Mensaje.NUMERO_INVALIDO.getMensaje(),exception.getMessage());
     }
 
 

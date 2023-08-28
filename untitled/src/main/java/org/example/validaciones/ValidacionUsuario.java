@@ -3,8 +3,6 @@ package org.example.validaciones;
 import org.example.utilidades.Mensaje;
 import org.example.utilidades.Util;
 
-import static java.lang.Integer.*;
-
 public class ValidacionUsuario {
     //ATRIBUTOS
     Util objetoUtil = new Util();
@@ -47,6 +45,7 @@ public class ValidacionUsuario {
         }
 
 }
+
 
 /*    public Boolean validarUbicacion( String inputValidarUbicacion )throws Exception{
 
